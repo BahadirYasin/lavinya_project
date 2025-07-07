@@ -3,296 +3,90 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lavinya - Et Restoranı</title>
-  
-  <!-- Great Vibes font -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <!-- Google Fonts - Poppins -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-
-
-  <!-- CSS dosyası -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Lavinya - Anasayfa{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}" />
 </head>
 <body>
- 
-<header class="header">
-  <div class="header-inner">
-    <a href="{% url 'index' %}" class="logo">
-      <img src="{% static 'images/logo.png' %}" alt="Lavinya Logo" />
-    </a>
+  {% include 'partials/header.html' %}
 
-    <nav class="nav-links" id="navLinks">
-      <a href="{% url 'index' %}">Anasayfa</a>
-      <a href="#">Hakkımızda</a>
-      <a href="{% url 'menu' %}">Menü</a>
-      <a href="#">Organizasyonlar</a>
-      <a href="#">Galeri</a>
-      <a href="{% url 'reservation' %}">Rezervasyon</a>
-      <a href="#">İletişim</a>
-    </nav>
+  {% block content %}
 
-
-  </div>
-</header>
-
-<section class="hero-background">
-  <div class="hero-image-wrapper">
-    {% if hero_image %}
-  <img src="{{ hero_image.image.url }}" alt="{{ hero_image.title }}" class="hero-image">
-    {% endif %}
-    <div class="hero-text-overlay">
-      <h1>Çok yakındaaa!</h1>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-slider">
+      <img src="{% static 'images/hero1.jpg' %}" alt="Hero 1">
+      <img src="{% static 'images/hero2.jpg' %}" alt="Hero 2">
+      <img src="{% static 'images/hero3.jpg' %}" alt="Hero 3">
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-
-<section id="hakkimizda" class="about-section">
-  <div class="about-container">
-    <div class="about-text">
-      <h2>Hakkımızda</h2>
-      <p>
-        Lavinya Garden Restaurant olarak doğayla iç içe, huzurlu ve şık atmosferimizde en kaliteli lezzetleri sunmaktan gurur duyuyoruz. 
-        Etin en özel halini sizinle buluşturuyor, özel günlerinizi unutulmaz kılıyoruz.
-      </p>
-      <a href="menu.html" class="menu-button">Menüyü Gör</a>
-    </div>
-    <div class="about-image">
-      <img src="{% static 'images/test.jpg' %}" alt="Lavinya Hakkımızda Görseli">
-    </div>
-  </div>
-</section>
-
-<section class="yorum-bolum">
-  <h2 class="yorum-baslik">Müşteri Yorumları</h2>
-  <div class="yorum-kapsayici">
-    <div class="yorum-kart">
-      <p class="yorum-metin">“Harika bir ortam, etler mükemmeldi! Kesinlikle tekrar geleceğim.”</p>
-      <p class="yorum-kisi">– Ayşe T.</p>
-    </div>
-    <div class="yorum-kart">
-      <p class="yorum-metin">“Organizasyonumuz kusursuz geçti. Tüm ekibe teşekkür ederiz.”</p>
-      <p class="yorum-kisi">– Mehmet B.</p>
-    </div>
-    <div class="yorum-kart">
-      <p class="yorum-metin">“Aileyle keyifli bir akşam yemeği yedik. Ambiyans çok hoş.”</p>
-      <p class="yorum-kisi">– Elif K.</p>
-    </div>
-  </div>
-</section>
-
-<section class="yorum-google-bolum">
-  <h2 class="yorum-google-baslik">Müşteri Yorumları</h2>
-  <div class="yorum-google-kapsayici">
-
-    <div class="yorum-google-kart">
-      <div class="yorum-google-ust">
-        <img src="images/avatar1.jpg" alt="Profil" class="yorum-google-avatar" />
-        <div>
-          <p class="yorum-google-kisi">Ayşe T.</p>
-          <div class="yorum-google-yildizlar">⭐️⭐️⭐️⭐️⭐️</div>
-          <p class="yorum-google-tarih">Haziran 2025</p>
-        </div>
+  <!-- Hakkımızda Section -->
+  <section class="about-section">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Hakkımızda</h2>
+        <p>Lavinya Garden Restaurant, doğayla iç içe huzurlu atmosferiyle unutulmaz anlar yaşatır. Lezzetli yemekleri, nezih ortamı ve profesyonel hizmet anlayışıyla sizleri bekliyoruz.</p>
       </div>
-      <p class="yorum-google-metin">Harika bir ortam, etler mükemmeldi! Kesinlikle tekrar geleceğim.</p>
-    </div>
-
-    <div class="yorum-google-kart">
-      <div class="yorum-google-ust">
-        <img src="images/avatar2.jpg" alt="Profil" class="yorum-google-avatar" />
-        <div>
-          <p class="yorum-google-kisi">Mehmet B.</p>
-          <div class="yorum-google-yildizlar">⭐️⭐️⭐️⭐️</div>
-          <p class="yorum-google-tarih">Mayıs 2025</p>
-        </div>
-      </div>
-      <p class="yorum-google-metin">Organizasyonumuz kusursuz geçti. Tüm ekibe teşekkür ederiz.</p>
-    </div>
-
-    <div class="yorum-google-kart">
-      <div class="yorum-google-ust">
-        <img src="images/avatar3.jpg" alt="Profil" class="yorum-google-avatar" />
-        <div>
-          <p class="yorum-google-kisi">Elif K.</p>
-          <div class="yorum-google-yildizlar">⭐️⭐️⭐️⭐️⭐️</div>
-          <p class="yorum-google-tarih">Nisan 2025</p>
-        </div>
-      </div>
-      <p class="yorum-google-metin">Aileyle keyifli bir akşam yemeği yedik. Ambiyans çok hoş.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="gallery-slider-section">
-  <div class="gallery-slider">
-    <button class="gallery-prev">&#10094;</button>
-
-    <div class="gallery-slides">
-      <img src="{% static 'images/gallery-photo1.jpg' %}" class="gallery-slide active" alt="Fotoğraf 1">
-      <img src="{% static 'images/gallery-photo2.jpg' %}" class="gallery-slide" alt="Fotoğraf 2">
-      <img src="{% static 'images/gallery-photo3.jpg' %}" class="gallery-slide" alt="Fotoğraf 3">
-      <img src="{% static 'images/gallery-photo4.jpg' %}" class="gallery-slide" alt="Fotoğraf 4">
-    </div>
-
-    <button class="gallery-next">&#10095;</button>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-
-<div class="footer-col" style="flex: 1 1 300px;">
-  <h4>Konumumuz</h4>
-  <div class="map-wrapper">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.208382197883!2d28.997406!3d39.0686333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c83fdc68bb30ab%3A0x9c4cab9dd2764e45!2sG%C3%B6k%C3%A7ep%C4%B1nar%2C%2043502%20Ye%C5%9Filk%C3%B6y%2FSimav%2FK%C3%BCtahya!5e0!3m2!1str!2str!4v1710000000000" 
-      width="100%" 
-      height="200" 
-      style="border:0; border-radius: 10px;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</div>
-      <div class="footer-col">
-        <h4>Lavinya</h4>
-        <ul>
-          <li><a href="#">Hakkımızda</a></li>
-          <li><a href="#">Hizmetlerimiz</a></li>
-          <li><a href="#">Gizlilik Politikası</a></li>
-          <li><a href="#">İş Ortaklığı</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Menü</h4>
-        <ul>
-          <li><a href="#">Izgara Etler</a></li>
-          <li><a href="#">Tatlılar</a></li>
-          <li><a href="#">İçecekler</a></li>
-          <li><a href="#">Kahvaltı</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Bizi Takip Edin</h4>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/lavinyagardenrestaurant/" target="_blank">
-  <i class="fab fa-instagram"></i>
-</a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+      <div class="about-image">
+        <img src="{% static 'images/about.jpg' %}" alt="Hakkımızda">
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
+  <!-- Google Yorumlar Bölümü (Dummy) -->
+  <section class="google-reviews">
+    <h2>Ziyaretçilerimiz Ne Diyor?</h2>
+    <div class="review-slider">
+      <div class="review">
+        <p>"Harika bir atmosfer, yemekler çok lezzetliydi!"</p>
+        <span>- Ayşe Y.</span>
+      </div>
+      <div class="review">
+        <p>"Düğün organizasyonumuz mükemmeldi. Teşekkürler Lavinya!"</p>
+        <span>- Mehmet T.</span>
+      </div>
+      <div class="review">
+        <p>"Servis, sunum ve ortam gerçekten çok iyi."</p>
+        <span>- Zeynep K.</span>
+      </div>
+    </div>
+  </section>
 
-<!-- JS dosyasını çağır -->
-<script src="{% static 'js/gallery-slider.js' %}" defer></script>
+  <!-- Fotoğraf Slider Bölümü -->
+  <section class="image-slider">
+    <div class="slider">
+      <img src="{% static 'images/slider1.jpg' %}" alt="Slider 1">
+      <img src="{% static 'images/slider2.jpg' %}" alt="Slider 2">
+      <img src="{% static 'images/slider3.jpg' %}" alt="Slider 3">
+    </div>
+  </section>
 
+  {% include 'partials/footer.html' %}
 
+  <a 
+    href="https://web.whatsapp.com/send?phone=8503070043&text=Merhaba%20Lavinya%20Restaurant%21%0ARezervasyon%20yapmak%20istiyorum."
+    target="_blank" 
+    id="whatsapp-float" 
+    rel="noopener noreferrer"
+    aria-label="WhatsApp ile iletişime geç"
+  >
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
 
+  <script>
+    // Hero otomatik slider (örnek)
+    const heroImages = document.querySelectorAll('.hero-slider img');
+    let currentHero = 0;
 
-<!-- WhatsApp Floating Button -->
-<!-- WhatsApp Floating Button -->
-<a 
-  href="https://web.whatsapp.com/send?phone=8503070043&text=Merhaba%20Lavinya%20Restaurant%21%0ARezervasyon%20yapmak%20istiyorum."
-  target="_blank" 
-  id="whatsapp-float" 
-  rel="noopener noreferrer"
-  aria-label="WhatsApp ile iletişime geç"
->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-</a>
+    setInterval(() => {
+      heroImages[currentHero].style.display = 'none';
+      currentHero = (currentHero + 1) % heroImages.length;
+      heroImages[currentHero].style.display = 'block';
+    }, 3000);
+  </script>
 
-<style>
-  #whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  #whatsapp-float img {
-    width: 35px;
-    height: 35px;
-  }
-
-  #whatsapp-float:hover {
-    background-color: #1ebe57;
-  }
-</style>
-
-<script>
-  const toggleBtn = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
-
-  // Menü butonuna tıklama
-  toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // Menü açıldığında body tıklamasını tetiklemesin
-    navLinks.classList.toggle("active");
-  });
-
-  // Sayfanın herhangi bir yerine tıklanınca menüyü kapat
-  document.body.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-  });
-
-  // Menüdeki bir linke tıklanınca da menü kapansın
-  navLinks.addEventListener("click", (e) => {
-    if (e.target.tagName === "A") {
-      navLinks.classList.remove("active");
-    }
-  });
-
-  // Menü açıkken dış tıklamaları algıla
-  navLinks.addEventListener("click", (e) => {
-    e.stopPropagation(); // Menüye tıklanırsa kapanmasın
-  });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const aboutImg = document.querySelector('.about-image img');
-
-  function checkVisibility() {
-    const rect = aboutImg.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-    if (rect.top <= windowHeight * 0.75) {
-      aboutImg.classList.add('visible');
-    } else {
-      aboutImg.classList.remove('visible');
-    }
-  }
-
-  window.addEventListener('scroll', checkVisibility);
-  checkVisibility();
-});
-</script>
-
-
+  {% endblock %}
 </body>
 </html>

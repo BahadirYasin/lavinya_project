@@ -497,6 +497,131 @@ header.shrink nav a {
 
 
 
+/* sonradan eklediğim kısım */
+
+/* HERO SECTION */
+.hero {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 80vh;
+}
+
+.hero-slider img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  display: none;
+}
+.hero-slider img:first-child {
+  display: block;
+}
+
+/* ABOUT SECTION */
+.about-section {
+  background-color: #fdfcf9;
+  color: #264839;
+  padding: 60px 20px;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #264839;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* GOOGLE REVIEWS SECTION */
+.google-reviews {
+  background: #e5e3d3;
+  padding: 60px 20px;
+  text-align: center;
+  color: #264839;
+}
+
+.google-reviews h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.review-slider {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.review {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 300px;
+  font-style: italic;
+}
+
+.review span {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* IMAGE SLIDER SECTION */
+.image-slider {
+  padding: 40px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.image-slider .slider {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px;
+}
+
+.image-slider .slider img {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+
+
+
 
 
 
