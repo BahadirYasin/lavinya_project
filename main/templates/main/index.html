@@ -20,23 +20,43 @@
 </head>
 <body>
  
-<header class="header">
-  <div class="header-inner">
-    <a href="{% url 'index' %}" class="logo">
-      <img src="{% static 'images/logo.png' %}" alt="Lavinya Logo" />
-    </a>
+<div class="top-bar">
+    <div class="top-bar-left">
+      <span><i class="fas fa-envelope"></i> lavinyarezervasyon@gmail.com</span>
+      <span><i class="fas fa-phone-alt"></i> +90 544 828 22 42</span>
+      <span><i class="fas fa-map-marker-alt"></i> Yeşilköy, Simav/Kütahya</span>
+    </div>
+    <div class="top-bar-right">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="{% url 'index' %}">Anasayfa</a>
-      <a href="#">Hakkımızda</a>
-      <a href="{% url 'menu' %}">Menü</a>
-      <a href="#">Organizasyonlar</a>
-      <a href="#">Galeri</a>
-      <a href="{% url 'reservation' %}">Rezervasyon</a>
-      <a href="#">İletişim</a>
-    </nav>
+<header>
+  <div class="logo">
+  <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img" />
 
+    <div class="mobile-title">
+        <span class="line1">Lavinya Garden Restaurant</span>
+        <span class="line2">& Wedding Area</span>
+      </div>
+</div>
+  <nav id="nav-menu">
+    <a href="{% url 'index' %}">Anasayfa</a>
+    <a href="#">Hakkımızda</a>
+    <a href="#">Menü</a>
+    <a href="#">Organizasyonlar</a>
+    <a href="#">Galeri</a>
+    <a href="#">Rezervasyon</a>
+    <a href="#">İletişim</a>
+  </nav>
 
+  <div class="hamburger" id="hamburger-btn" aria-label="Menüyü aç/kapat" aria-expanded="false" role="button" tabindex="0">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </header>
 
@@ -146,56 +166,64 @@
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-
-<div class="footer-col" style="flex: 1 1 300px;">
-  <h4>Konumumuz</h4>
-  <div class="map-wrapper">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.208382197883!2d28.997406!3d39.0686333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c83fdc68bb30ab%3A0x9c4cab9dd2764e45!2sG%C3%B6k%C3%A7ep%C4%B1nar%2C%2043502%20Ye%C5%9Filk%C3%B6y%2FSimav%2FK%C3%BCtahya!5e0!3m2!1str!2str!4v1710000000000" 
-      width="100%" 
-      height="200" 
-      style="border:0; border-radius: 10px;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
+<footer class="modern-footer">
+  <div class="footer-wrapper">
+    
+    <!-- İLETİŞİM -->
+<div class="footer-col">
+  <h4>İletişim</h4>
+  <p><i class="fas fa-map-marker-alt"></i> Yeşilköy, Simav / Kütahya</p>
+  <p>
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:lavinyarezervasyon@gmail.com">lavinyarezervasyon@gmail.com</a>
+  </p>
+  <p>
+    <i class="fas fa-phone-alt"></i>
+    <a href="tel:+905550438243">+90 555 043 82 43</a>
+  </p>
 </div>
-      <div class="footer-col">
-        <h4>Lavinya</h4>
-        <ul>
-          <li><a href="#">Hakkımızda</a></li>
-          <li><a href="#">Hizmetlerimiz</a></li>
-          <li><a href="#">Gizlilik Politikası</a></li>
-          <li><a href="#">İş Ortaklığı</a></li>
-        </ul>
-      </div>
 
-      <div class="footer-col">
-        <h4>Menü</h4>
-        <ul>
-          <li><a href="#">Izgara Etler</a></li>
-          <li><a href="#">Tatlılar</a></li>
-          <li><a href="#">İçecekler</a></li>
-          <li><a href="#">Kahvaltı</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Bizi Takip Edin</h4>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/lavinyagardenrestaurant/" target="_blank">
-  <i class="fab fa-instagram"></i>
-</a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+    <!-- MENÜ -->
+    <div class="footer-col">
+      <h4>Hızlı Erişim</h4>
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#">Hakkımızda</a></li>
+        <li><a href="#">Menü</a></li>
+        <li><a href="#">Organizasyonlar</a></li>
+        <li><a href="#">Galeri</a></li>
+        <li><a href="#">Rezervasyon</a></li>
+        <li><a href="#">İletişim</a></li>
+      </ul>
+    </div>
+
+    <!-- SOSYAL MEDYA -->
+    <div class="footer-col">
+      <h4>Sosyal Medya</h4>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/lavinyagardenrestaurant/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
+
+    <!-- HARİTA -->
+    <div class="footer-col">
+      <h4>Konum</h4>
+      <div class="map-frame">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.208382197883!2d28.997406!3d39.0686333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c83fdc68bb30ab%3A0x9c4cab9dd2764e45!2sYe%C5%9Filk%C3%B6y%2FSimav%2FK%C3%BCtahya!5e0!3m2!1str!2str!4v1710000000000" 
+          width="100%" height="160" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
   </div>
+<div class="footer-bottom">
+  <span>© 2025 Lavinya Garden Restaurant | Tüm Hakları Saklıdır.</span>
+  <span class="designer-credit">Designed by Bahadır Yasin Çetinsoy</span>
+</div>
 </footer>
 
 
