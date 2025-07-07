@@ -14,5 +14,10 @@ class Reservation(models.Model):
         return f"{self.name} - {self.date} {self.time}"
 
 
-# Create your models here.
+class HeroImage(models.Model):
+    title = models.CharField(max_length=100, blank=True)
+    image = models.ImageField(upload_to='hero/')
+
+    def __str__(self):
+        return self.title or "Hero Görseli"
     

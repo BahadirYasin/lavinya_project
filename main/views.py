@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Reservation
 from django.contrib import messages
+from .models import HeroImage
 
 def index(request):
     return render(request, 'main/index.html')
@@ -34,5 +35,11 @@ def menu_view(request):
 
 def gallery_view(request):
     return render(request, 'main/gallery.html')
+
+def index(request):
+    hero_image = HeroImage.objects.last()  # Son yüklenen hero görseli
+    return render(request, 'main/index.html', {
+        'hero_image': hero_image
+    })
 
 
