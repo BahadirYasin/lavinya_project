@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lavinya - Rezervasyon</title>
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- CSS dosyası -->
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="{% url 'index' %}" class="logo">
+      <img src="{% static 'images/logo.png' %}" alt="Lavinya Logo" />
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="{% url 'index' %}">Anasayfa</a>
+      <a href="#">Hakkımızda</a>
+      <a href="{% url 'menu' %}">Menü</a>
+      <a href="#">Organizasyonlar</a>
+      <a href="#">Galeri</a>
+      <a href="{% url 'reservation' %}">Rezervasyon</a>
+      <a href="#">İletişim</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menüyü Aç/Kapat">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  // Basit hamburger menü açma kapama scripti
+  const navToggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('nav-open');
+    navToggle.classList.toggle('open');
+  });
+</script>
+
+
+<div class="rezervasyon-container">
+  <h1 class="rezervasyon-title">Rezervasyon Yap</h1>
+  <form method="POST" action="{% url 'reservation' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Adınız Soyadınız" required />
+      <input type="email" name="email" placeholder="E-posta Adresiniz" required />
+      <input type="tel" name="phone" placeholder="Telefon Numaranız" required />
+      <input type="date" name="date" required />
+      <input type="time" name="time" required />
+      <textarea name="detail" placeholder="Açıklama (Opsiyonel)"></textarea>
+      <button type="submit">Gönder</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  // Menü butonuna tıklama
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Menü açıldığında body tıklamasını tetiklemesin
+    navLinks.classList.toggle("active");
+  });
+
+  // Sayfanın herhangi bir yerine tıklanınca menüyü kapat
+  document.body.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+
+  // Menüdeki bir linke tıklanınca da menü kapansın
+  navLinks.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
+      navLinks.classList.remove("active");
+    }
+  });
+
+  // Menü açıkken dış tıklamaları algıla
+  navLinks.addEventListener("click", (e) => {
+    e.stopPropagation(); // Menüye tıklanırsa kapanmasın
+  });
+</script>
+
+
+   <style>
+    /* Container */
+.rezervasyon-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 28px 24px;
+  background-color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(95, 32, 121, 0.15);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Başlık */
+.rezervasyon-title {
+  text-align: center;
+  font-size: 26px;
+  color: #3a3a3a;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+/* Form grup */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Input ve textarea */
+.form-group input,
+.form-group textarea {
+  padding: 10px 14px;
+  border: 1.5px solid #d3d3d3;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #444;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #5f2079;
+  box-shadow: 0 0 0 3px rgba(95, 32, 121, 0.15);
+  outline: none;
+}
+
+/* Buton */
+.form-group button {
+  margin-top: 10px;
+  background-color: #264839;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(95, 32, 121, 0.25);
+}
+
+.form-group button:hover {
+  background-color: #203d31;
+}
+
+/* Placeholder */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rezervasyon-container {
+    margin: 120px 12px;
+    padding: 20px 16px;
+  }
+
+  .rezervasyon-title {
+    font-size: 22px;
+  }
+
+  .form-group button {
+    font-size: 15px;
+    padding: 12px 0;
+  }
+}
+
+  </style>
+
+
+</body>
+</html>

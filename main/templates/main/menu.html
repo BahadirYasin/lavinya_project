@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavinya - Menü</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS dosyası -->
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+
+
+
+
+<header class="header">
+    <div class="top-bar">
+  <div class="top-bar-left">
+    <span><i class="fas fa-envelope"></i> lavinyarezervasyon@gmail.com</span>
+    <span><i class="fas fa-phone-alt"></i> +90 544 828 22 42</span>
+    <span><i class="fas fa-map-marker-alt"></i> Yeşilköy, Simav/Kütahya</span>
+  </div>
+  <div class="top-bar-right">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+</div>
+  <div class="container">
+    <a href="{% url 'index' %}" class="logo">
+      <img src="{% static 'images/logo.png' %}" alt="Lavinya Logo" />
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="{% url 'index' %}">Anasayfa</a>
+      <a href="#">Hakkımızda</a>
+      <a href="{% url 'menu' %}">Menü</a>
+      <a href="#">Organizasyonlar</a>
+      <a href="{% url 'gallery' %}">Galeri</a>
+      <a href="{% url 'reservation' %}">Rezervasyon</a>
+      <a href="#">İletişim</a>
+      <a href="#" class="sizi-arayalim-btn">Sizi Arayalım</a>
+
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menüyü Aç/Kapat">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</header>
+
+<section class="menu-section">
+  <div class="menu-title">
+    <h1>Menümüz</h1>
+    <p>Lezzetli seçeneklerimizle tanışın</p>
+  </div>
+
+  <div class="menu-buttons">
+    <button onclick="scrollToSection('kahvalti')">Kahvaltı</button>
+    <button onclick="scrollToSection('yemek')">Yemek</button>
+    <button onclick="scrollToSection('tatli')">Tatlı</button>
+    <button onclick="scrollToSection('icecek')">İçecek</button>
+  </div>
+
+  <section id="kahvalti" class="menu-category">
+    <h2>Kahvaltı Menüsü</h2>
+    <ul>
+      <li>Serpme Kahvaltı</li>
+      <li>Omlet Çeşitleri</li>
+      <li>Menemen</li>
+      <li>Peynir Tabağı</li>
+    </ul>
+  </section>
+
+  <section id="yemek" class="menu-category">
+    <h2>Yemek Menüsü</h2>
+    <ul>
+      <li>Izgara Biftek</li>
+      <li>Kuzu Pirzola</li>
+      <li>Köfte Çeşitleri</li>
+      <li>Hamburger</li>
+    </ul>
+  </section>
+
+  <section id="tatli" class="menu-category">
+    <h2>Tatlı Menüsü</h2>
+    <ul>
+      <li>Tiramisu</li>
+      <li>Cheesecake</li>
+      <li>Sütlaç</li>
+      <li>Dondurmalı İrmik Helvası</li>
+    </ul>
+  </section>
+
+  <section id="icecek" class="menu-category">
+    <h2>İçecek Menüsü</h2>
+    <ul>
+      <li>Türk Kahvesi</li>
+      <li>Limonata</li>
+      <li>Taze Meyve Suları</li>
+      <li>Soğuk Çay</li>
+    </ul>
+  </section>
+</section>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<a 
+  href="https://web.whatsapp.com/send?phone=8503070043&text=Merhaba%20Lavinya%20Restaurant%21%0ARezervasyon%20yapmak%20istiyorum."
+  target="_blank" 
+  id="whatsapp-float" 
+  rel="noopener noreferrer"
+  aria-label="WhatsApp ile iletişime geç"
+>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+<style>
+  #whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    transition: background-color  0.3s ease;
+  }
+
+  #whatsapp-float img {
+    width: 35px;
+    height: 35px;
+  }
+
+  #whatsapp-float:hover {
+    background-color: #1ebe57;
+  }
+</style>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+  const overlay = document.getElementById('navOverlay');
+
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('nav-open');
+    navToggle.classList.toggle('open');
+    overlay.classList.toggle('active');
+  });
+
+  // Overlay'e tıklanınca menü kapansın
+  overlay.addEventListener('click', () => {
+    nav.classList.remove('nav-open');
+    navToggle.classList.remove('open');
+    overlay.classList.remove('active');
+  });
+
+  // Scroll butonları (değişmedi)
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+
+</body>
+</html>
