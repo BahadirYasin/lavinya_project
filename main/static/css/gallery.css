@@ -653,120 +653,190 @@ header.shrink nav a {
 
 
 /* yeni index.html için header ve footer hariç kısımların css'i */
-/* HERO */
-.lav-hero {
-  position: relative;
-  width: 100%;
+/* Genel ayarlar */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #1c1c1c;
+  background: #fdfcf9;
+}
+
+/* Hero alanı */
+.lavinya-hero {
+  background-image: url('/static/images/sarkuteri_tabagi.jpg');
+  background-size: cover;
+  background-position: center;
   height: 90vh;
-  overflow: hidden;
-}
-
-.lav-hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.lav-hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 15, 15, 0.4);
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-}
-
-.lav-hero-title {
-  color: white;
-  font-size: 3.5rem;
   text-align: center;
-  font-family: 'Great Vibes', cursive;
+  color: white;
+  position: relative;
 }
 
-/* HAKKIMIZDA */
-.lav-about {
-  padding: 80px 20px;
-  background-color: #fffaf5;
+.lavinya-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 
-.lav-about-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  align-items: center;
-  max-width: 1200px;
-  margin: auto;
+.lavinya-hero-content {
+  position: relative;
+  z-index: 2;
 }
 
-.lav-about-text {
-  flex: 1;
+.lavinya-hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
 }
 
-.lav-about-text h2 {
-  font-size: 2rem;
+.lavinya-hero p {
+  font-size: 20px;
   margin-bottom: 20px;
-  color: #264839;
 }
 
-.lav-about-text p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.lav-about-btn {
-  padding: 10px 20px;
-  background-color: #264839;
+.lavinya-btn {
+  padding: 10px 25px;
+  background: #264839;
   color: white;
   text-decoration: none;
   border-radius: 4px;
-  transition: background 0.3s ease;
+  font-weight: 500;
+  transition: background 0.3s;
 }
 
-.lav-about-btn:hover {
-  background-color: #1c342c;
+.lavinya-btn:hover {
+  background: #3a654a;
 }
 
-.lav-about-img img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+/* Hakkımızda */
+.lavinya-about {
+  padding: 60px 20px;
+  background: #fff;
 }
 
-/* GALERİ */
-.lav-gallery {
-  background-color: #f4f1ec;
+.lavinya-about-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.lavinya-about-text {
+  flex: 1 1 400px;
+}
+
+.lavinya-about-image {
+  flex: 1 1 400px;
+}
+
+.lavinya-about-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Galeri */
+.lavinya-gallery {
+  background: #f5f5f5;
   padding: 60px 20px;
   text-align: center;
 }
 
-.lav-gallery h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  color: #264839;
-}
-
-.lav-gallery-grid {
+.lavinya-gallery-grid {
+  max-width: 1000px;
+  margin: 30px auto 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: auto;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
 }
 
-.lav-gallery-grid img {
+.lavinya-gallery-grid img {
   width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+  border-radius: 8px;
   object-fit: cover;
 }
 
-.lav-gallery-grid img:hover {
-  transform: scale(1.03);
+/* Yorumlar */
+.lavinya-reviews {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
 }
+
+.lavinya-review-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 30px auto 0;
+}
+
+.lavinya-review {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.lavinya-gallery-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 30px auto 0;
+}
+
+.lavinya-gallery-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 15px;
+}
+
+.lavinya-gallery-track img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.lavinya-gallery-prev,
+.lavinya-gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(38, 72, 57, 0.8);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.lavinya-gallery-prev {
+  left: 10px;
+}
+
+.lavinya-gallery-next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .lavinya-gallery-track img {
+    max-width: 80%;
+  }
+}
+
+
 
 
 
