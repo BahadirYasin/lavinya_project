@@ -280,6 +280,74 @@ header.shrink nav a {
   }
 }
 
+.about-section {
+  background-color: #f5f5f5;
+  padding: 60px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-text {
+  flex: 1 1 400px;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  color: #5f2079;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.menu-button {
+  background-color: #5f2079;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.menu-button:hover {
+  background-color: #7a359c;
+}
+
+.about-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transform: rotate(-15deg);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.about-image img.visible {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
 .gallery-baslik {
   max-width: 1200px;
   margin: 0 auto;
@@ -494,6 +562,189 @@ header.shrink nav a {
     font-size: 13px; /* Alt bilgi yazısı büyütüldü */
   }
 }
+
+
+/* yeni index.html için header ve footer hariç kısımların css'i */
+/* Genel ayarlar */
+
+
+/* Hero alanı */
+.lavinya-hero {
+  background-image: url('/static/images/sarkuteri_tabagi.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.lavinya-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.lavinya-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.lavinya-hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.lavinya-hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.lavinya-btn {
+  padding: 10px 25px;
+  background: #264839;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.lavinya-btn:hover {
+  background: #3a654a;
+}
+
+/* Hakkımızda */
+.lavinya-about {
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.lavinya-about-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.lavinya-about-text {
+  flex: 1 1 400px;
+}
+
+.lavinya-about-image {
+  flex: 1 1 400px;
+}
+
+.lavinya-about-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Galeri */
+.lavinya-gallery {
+  background: #f5f5f5;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.lavinya-gallery-grid {
+  max-width: 1000px;
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.lavinya-gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Yorumlar */
+.lavinya-reviews {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.lavinya-review-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 30px auto 0;
+}
+
+.lavinya-review {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.lavinya-gallery-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 30px auto 0;
+}
+
+.lavinya-gallery-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 15px;
+}
+
+.lavinya-gallery-track img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.lavinya-gallery-prev,
+.lavinya-gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(38, 72, 57, 0.8);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.lavinya-gallery-prev {
+  left: 10px;
+}
+
+.lavinya-gallery-next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .lavinya-gallery-track img {
+    max-width: 80%;
+  }
+}
+
+
+
+
 
 
 
