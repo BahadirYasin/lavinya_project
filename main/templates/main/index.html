@@ -48,8 +48,8 @@
     <a href="#">Hakkımızda</a>
     <a href="{% url 'menu' %}">Menü</a>
     <a href="#">Organizasyonlar</a>
-    <a href="#">Galeri</a>
-    <a href="#">Rezervasyon</a>
+    <a href="{% url 'gallery' %}">Galeri</a>
+    <a href="{% url 'reservation' %}">Rezervasyon</a>
     <a href="#">İletişim</a>
   </nav>
 
@@ -273,31 +273,23 @@
   }
 </style>
 
+
 <script>
-  const toggleBtn = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
+  const hamburger = document.getElementById('hamburger-btn');
+  const navMenu = document.getElementById('nav-menu');
 
-  // Menü butonuna tıklama
-  toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // Menü açıldığında body tıklamasını tetiklemesin
-    navLinks.classList.toggle("active");
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('open');
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !expanded);
   });
 
-  // Sayfanın herhangi bir yerine tıklanınca menüyü kapat
-  document.body.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-  });
-
-  // Menüdeki bir linke tıklanınca da menü kapansın
-  navLinks.addEventListener("click", (e) => {
-    if (e.target.tagName === "A") {
-      navLinks.classList.remove("active");
+  hamburger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      hamburger.click();
     }
-  });
-
-  // Menü açıkken dış tıklamaları algıla
-  navLinks.addEventListener("click", (e) => {
-    e.stopPropagation(); // Menüye tıklanırsa kapanmasın
   });
 </script>
 
