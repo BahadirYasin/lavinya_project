@@ -564,9 +564,11 @@ header.shrink nav a {
 }
 
 
+/* yeni index.html için header ve footer hariç kısımların css'i */
+/* Genel ayarlar */
 
 
-
+/* Hero alanı */
 .lavinya-hero {
   background-image: url('/static/images/sarkuteri_tabagi.jpg');
   background-size: cover;
