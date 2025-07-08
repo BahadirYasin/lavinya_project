@@ -565,25 +565,9 @@ header.shrink nav a {
 
 
 
-/* sonradan eklediğim kısım */
 
-/* HERO SECTION */
-.hero {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  height: 80vh;
-}
 
-.hero-slider img {
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-  display: none;
-}
-.hero-slider img:first-child {
-  display: block;
-}
+
 
 
 
