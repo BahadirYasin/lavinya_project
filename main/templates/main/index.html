@@ -60,111 +60,47 @@
   </div>
 </header>
 
-<section class="hero-background">
-  <div class="hero-image-wrapper">
+<main>
+  <!-- Hero -->
+  <section class="lav-hero">
     {% if hero_image %}
-  <img src="{{ hero_image.image.url }}" alt="{{ hero_image.title }}" class="hero-image">
+      <img src="{{ hero_image.image.url }}" alt="{{ hero_image.title }}" class="lav-hero-img">
     {% endif %}
-    <div class="hero-text-overlay">
-      <h1>Çok yakındaaa!</h1>
+    <div class="lav-hero-overlay">
+      <h1 class="lav-hero-title">Çok yakındaaa!</h1>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-
-<section id="hakkimizda" class="about-section">
-  <div class="about-container">
-    <div class="about-text">
-      <h2>Hakkımızda</h2>
-      <p>
-        Lavinya Garden Restaurant olarak doğayla iç içe, huzurlu ve şık atmosferimizde en kaliteli lezzetleri sunmaktan gurur duyuyoruz. 
-        Etin en özel halini sizinle buluşturuyor, özel günlerinizi unutulmaz kılıyoruz.
-      </p>
-      <a href="menu.html" class="menu-button">Menüyü Gör</a>
-    </div>
-    <div class="about-image">
-      <img src="{% static 'images/test.jpg' %}" alt="Lavinya Hakkımızda Görseli">
-    </div>
-  </div>
-</section>
-
-<section class="yorum-bolum">
-  <h2 class="yorum-baslik">Müşteri Yorumları</h2>
-  <div class="yorum-kapsayici">
-    <div class="yorum-kart">
-      <p class="yorum-metin">“Harika bir ortam, etler mükemmeldi! Kesinlikle tekrar geleceğim.”</p>
-      <p class="yorum-kisi">– Ayşe T.</p>
-    </div>
-    <div class="yorum-kart">
-      <p class="yorum-metin">“Organizasyonumuz kusursuz geçti. Tüm ekibe teşekkür ederiz.”</p>
-      <p class="yorum-kisi">– Mehmet B.</p>
-    </div>
-    <div class="yorum-kart">
-      <p class="yorum-metin">“Aileyle keyifli bir akşam yemeği yedik. Ambiyans çok hoş.”</p>
-      <p class="yorum-kisi">– Elif K.</p>
-    </div>
-  </div>
-</section>
-
-<section class="yorum-google-bolum">
-  <h2 class="yorum-google-baslik">Müşteri Yorumları</h2>
-  <div class="yorum-google-kapsayici">
-
-    <div class="yorum-google-kart">
-      <div class="yorum-google-ust">
-        <img src="images/avatar1.jpg" alt="Profil" class="yorum-google-avatar" />
-        <div>
-          <p class="yorum-google-kisi">Ayşe T.</p>
-          <div class="yorum-google-yildizlar">⭐️⭐️⭐️⭐️⭐️</div>
-          <p class="yorum-google-tarih">Haziran 2025</p>
-        </div>
+  <!-- Hakkımızda -->
+  <section class="lav-about">
+    <div class="lav-about-wrapper">
+      <div class="lav-about-text">
+        <h2>Hakkımızda</h2>
+        <p>
+          Lavinya Garden Restaurant olarak doğayla iç içe, huzurlu ve şık atmosferimizde en kaliteli lezzetleri sunmaktan gurur duyuyoruz.
+        </p>
+        <a href="{% url 'menu' %}" class="lav-about-btn">Menüyü Gör</a>
       </div>
-      <p class="yorum-google-metin">Harika bir ortam, etler mükemmeldi! Kesinlikle tekrar geleceğim.</p>
-    </div>
-
-    <div class="yorum-google-kart">
-      <div class="yorum-google-ust">
-        <img src="images/avatar2.jpg" alt="Profil" class="yorum-google-avatar" />
-        <div>
-          <p class="yorum-google-kisi">Mehmet B.</p>
-          <div class="yorum-google-yildizlar">⭐️⭐️⭐️⭐️</div>
-          <p class="yorum-google-tarih">Mayıs 2025</p>
-        </div>
+      <div class="lav-about-img">
+        <img src="{% static 'images/test.jpg' %}" alt="Lavinya Hakkımızda">
       </div>
-      <p class="yorum-google-metin">Organizasyonumuz kusursuz geçti. Tüm ekibe teşekkür ederiz.</p>
     </div>
+  </section>
 
-    <div class="yorum-google-kart">
-      <div class="yorum-google-ust">
-        <img src="images/avatar3.jpg" alt="Profil" class="yorum-google-avatar" />
-        <div>
-          <p class="yorum-google-kisi">Elif K.</p>
-          <div class="yorum-google-yildizlar">⭐️⭐️⭐️⭐️⭐️</div>
-          <p class="yorum-google-tarih">Nisan 2025</p>
-        </div>
-      </div>
-      <p class="yorum-google-metin">Aileyle keyifli bir akşam yemeği yedik. Ambiyans çok hoş.</p>
+  <!-- Galeri -->
+  <section class="lav-gallery">
+    <h2>Galeri</h2>
+    <div class="lav-gallery-grid">
+      <img src="{% static 'images/gallery-photo1.jpg' %}" alt="Galeri 1">
+      <img src="{% static 'images/gallery-photo2.jpg' %}" alt="Galeri 2">
+      <img src="{% static 'images/gallery-photo3.jpg' %}" alt="Galeri 3">
+      <img src="{% static 'images/gallery-photo4.jpg' %}" alt="Galeri 4">
     </div>
+  </section>
+</main>
 
-  </div>
-</section>
 
-<section class="gallery-slider-section">
-  <div class="gallery-slider">
-    <button class="gallery-prev">&#10094;</button>
 
-    <div class="gallery-slides">
-      <img src="{% static 'images/gallery-photo1.jpg' %}" class="gallery-slide active" alt="Fotoğraf 1">
-      <img src="{% static 'images/gallery-photo2.jpg' %}" class="gallery-slide" alt="Fotoğraf 2">
-      <img src="{% static 'images/gallery-photo3.jpg' %}" class="gallery-slide" alt="Fotoğraf 3">
-      <img src="{% static 'images/gallery-photo4.jpg' %}" class="gallery-slide" alt="Fotoğraf 4">
-    </div>
-
-    <button class="gallery-next">&#10095;</button>
-  </div>
-</section>
 
 <footer class="modern-footer">
   <div class="footer-wrapper">

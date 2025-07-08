@@ -652,6 +652,125 @@ header.shrink nav a {
 
 
 
+/* yeni index.html için header ve footer hariç kısımların css'i */
+/* HERO */
+.lav-hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.lav-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lav-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lav-hero-title {
+  color: white;
+  font-size: 3.5rem;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+}
+
+/* HAKKIMIZDA */
+.lav-about {
+  padding: 80px 20px;
+  background-color: #fffaf5;
+}
+
+.lav-about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.lav-about-text {
+  flex: 1;
+}
+
+.lav-about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #264839;
+}
+
+.lav-about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.lav-about-btn {
+  padding: 10px 20px;
+  background-color: #264839;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.lav-about-btn:hover {
+  background-color: #1c342c;
+}
+
+.lav-about-img img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* GALERİ */
+.lav-gallery {
+  background-color: #f4f1ec;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.lav-gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #264839;
+}
+
+.lav-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.lav-gallery-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.lav-gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+
+
+
 
 
 
