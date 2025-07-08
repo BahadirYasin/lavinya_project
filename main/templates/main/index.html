@@ -15,7 +15,7 @@
 
 
   <!-- CSS dosyası -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
 
 </head>
 <body>
@@ -46,7 +46,7 @@
   <nav id="nav-menu">
     <a href="{% url 'index' %}">Anasayfa</a>
     <a href="#">Hakkımızda</a>
-    <a href="#">Menü</a>
+    <a href="{% url 'menu' %}">Menü</a>
     <a href="#">Organizasyonlar</a>
     <a href="#">Galeri</a>
     <a href="#">Rezervasyon</a>
