@@ -60,44 +60,65 @@
   </div>
 </header>
 
-<main>
-  <!-- Hero -->
-  <section class="lav-hero">
-    {% if hero_image %}
-      <img src="{{ hero_image.image.url }}" alt="{{ hero_image.title }}" class="lav-hero-img">
-    {% endif %}
-    <div class="lav-hero-overlay">
-      <h1 class="lav-hero-title">Çok yakındaaa!</h1>
-    </div>
-  </section>
+{% load static %}
+<section class="lavinya-hero">
+  <div class="lavinya-hero-content">
+    <h1>Doğayla İç İçe Lezzet</h1>
+    <p>Lavinya Garden Restaurant'a hoş geldiniz</p>
+    <a href="{% url 'reservation' %}" class="lavinya-btn">Rezervasyon Yap</a>
+  </div>
+</section>
 
-  <!-- Hakkımızda -->
-  <section class="lav-about">
-    <div class="lav-about-wrapper">
-      <div class="lav-about-text">
-        <h2>Hakkımızda</h2>
-        <p>
-          Lavinya Garden Restaurant olarak doğayla iç içe, huzurlu ve şık atmosferimizde en kaliteli lezzetleri sunmaktan gurur duyuyoruz.
-        </p>
-        <a href="{% url 'menu' %}" class="lav-about-btn">Menüyü Gör</a>
-      </div>
-      <div class="lav-about-img">
-        <img src="{% static 'images/test.jpg' %}" alt="Lavinya Hakkımızda">
-      </div>
+<section class="lavinya-about">
+  <div class="lavinya-about-container">
+    <div class="lavinya-about-text">
+      <h2>Hakkımızda</h2>
+      <p>
+        Lavinya Garden Restaurant, doğayla iç içe huzurlu atmosferi ve eşsiz et menüsüyle hizmetinizde.
+        Aileniz ve sevdiklerinizle keyifli anlar için ideal bir ortam sunuyoruz.
+      </p>
     </div>
-  </section>
+    <div class="lavinya-about-image">
+      <img src="{% static 'images/about.jpg' %}" alt="Hakkımızda Görseli">
+    </div>
+  </div>
+</section>
 
-  <!-- Galeri -->
-  <section class="lav-gallery">
-    <h2>Galeri</h2>
-    <div class="lav-gallery-grid">
-      <img src="{% static 'images/gallery-photo1.jpg' %}" alt="Galeri 1">
-      <img src="{% static 'images/gallery-photo2.jpg' %}" alt="Galeri 2">
-      <img src="{% static 'images/gallery-photo3.jpg' %}" alt="Galeri 3">
-      <img src="{% static 'images/gallery-photo4.jpg' %}" alt="Galeri 4">
+<section class="lavinya-gallery">
+  <h2>Galeri</h2>
+  <div class="lavinya-gallery-wrapper">
+    <button class="lavinya-gallery-prev">&#10094;</button>
+    
+    <div class="lavinya-gallery-track">
+      <img src="{% static 'images/gallery1.jpg' %}" alt="Galeri 1">
+      <img src="{% static 'images/gallery2.jpg' %}" alt="Galeri 2">
+      <img src="{% static 'images/gallery3.jpg' %}" alt="Galeri 3">
+      <img src="{% static 'images/gallery4.jpg' %}" alt="Galeri 4">
+      <img src="{% static 'images/gallery5.jpg' %}" alt="Galeri 5">
     </div>
-  </section>
-</main>
+
+    <button class="lavinya-gallery-next">&#10095;</button>
+  </div>
+</section>
+
+<section class="lavinya-reviews">
+  <h2>Müşteri Yorumları</h2>
+  <div class="lavinya-review-cards">
+    <div class="lavinya-review">
+      <p>“Harika yemekler ve mükemmel bir atmosfer!”</p>
+      <span>– Ayşe T.</span>
+    </div>
+    <div class="lavinya-review">
+      <p>“Organizasyonumuz unutulmaz oldu, teşekkür ederiz.”</p>
+      <span>– Mehmet B.</span>
+    </div>
+    <div class="lavinya-review">
+      <p>“Hizmet ve lezzet muazzamdı. Tavsiye ederim.”</p>
+      <span>– Elif K.</span>
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -180,7 +201,7 @@
 >
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
-
+<!--whatsapp ikon css'i-->
 <style>
   #whatsapp-float {
     position: fixed;
@@ -247,6 +268,25 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', checkVisibility);
   checkVisibility();
 });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.lavinya-gallery-track');
+    const nextBtn = document.querySelector('.lavinya-gallery-next');
+    const prevBtn = document.querySelector('.lavinya-gallery-prev');
+
+    let scrollAmount = 0;
+    const scrollStep = 320; // her tıklamada kaç px kayacak
+
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    });
+  });
 </script>
 
 
